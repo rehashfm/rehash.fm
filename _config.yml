@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values
@@ -30,3 +31,8 @@ gems:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-redirect-from
+=======
+theme: jekyll-theme-slate
+gems:
+  - jekyll-feed
+>>>>>>> cab608d12b3546c3aac05f021d377d5ad2e6b7ff
