@@ -1,31 +1,18 @@
 ---
-layout:    about
+layout:    page
 permalink: "/about/"
-author:    jwillmer
-keywords:  about person demo example
-title:     About Jens Willmer
+author:    smile-0yen
+keywords:  about rehash.fm
+title:     About
 menutitle: About
 weight:    90
-excerpt:   This page contains the curriculum vitae (CV) of the author.
+excerpt:   This page contains the explanation about rehash.fm 
 ---
 
-## Profile
-
-Integer sit amet libero non sapien sagittis dapibus. Phasellus gravida quam ac nisl finibus dictum. Pellentesque vel orci et nisi pretium tincidunt nec a diam. Vivamus et leo eu lorem congue pellentesque id sed tortor. Nulla et nibh neque. Sed ut fermentum lectus, id rhoncus erat.
-
----
-
-## Skills
-
-- Praesent ac augue imperdiet, interdum purus id, sollicitudin sem.
-- Sed pellentesque urna a magna suscipit volutpat.
-- Donec ultricies lectus non augue dictum hendrerit ac ac lorem.
-- Integer eget dui eu purus luctus posuere in non metus.
-- Nam ac felis eget tortor blandit gravida non et diam.
+## rehash.fmとは
+rehash.fmは酒をこよなく愛する[smile-0yen](https://github.com/smile-0yen)と釣りに人生を懸ける[azihsoyn](https://github.com/azihsoyn)の２人のエンジニアが最近気になっている技術情報**など**をお送りするまったり系Tech Podcastです。
 
 ---
 
-## Education
-
-2009 - 2012
-: Mauris vitae velit vel leo suscipit tempus vel vel elit.
+## ご意見・ご要望
+ご質問やご意見・ご要望などはTwitterにてハッシュタグ[#rehashfm](https://twitter.com/search?q=%23rehashfm&src=typd)または専用アカウント[@rehashfm](https://twitter.com/rehashfm)までお寄せ下さい。  
