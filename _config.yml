@@ -14,7 +14,7 @@ language:         "ja" # default language of the blog. Language codes: http://ww
 
 baseurl:          "" # the subpath of your site, e.g. /blog
 url:              "http://rehash.fm" # the base hostname & protocol for your site. Have a look at robots.txt as well!
-permalink:        /blog/:categories/:title
+permalink:        /:title
 cover:            /assets/cover.jpg
 disqus_shortname: "jekylldecent"
 
