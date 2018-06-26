@@ -5,7 +5,7 @@ default:                                                      # Fallback if noth
   picture:      /assets/favicon-62.png                        # OPTIONAL: author picture
   bio:          Tech podcast for everyone                     # OPTIONAL: text below author name in posts
   location:     Japan                                         # OPTIONAL: used to display location of the author
-  website:      "http://rehash.fm"                            # OPTIONAL: link to the author of a post
+  website:      "https://rehash.fm"                            # OPTIONAL: link to the author of a post
   email:                                                      # OPTIONAL: used in the about page
   twitter:      rehashfm                                      # OPTIONAL: used in the about page
   linkedin:                                                   # OPTIONAL: used in the about page
@@ -26,6 +26,6 @@ jwillmer:
   picture:      /assets/jwillmer.jpg  
   bio:          All about technology 
   location:     Germany 
-  website:      "http://jwillmer.de/about" 
+  website:      "https://jwillmer.de/about"
   twitter:      jenswillmer
   github:       jwillmer
