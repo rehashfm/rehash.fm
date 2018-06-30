@@ -13,7 +13,7 @@ keywords:         podcast technology
 language:         "ja" # default language of the blog. Language codes: http://www.w3schools.com/tags/ref_language_codes.asp
 
 baseurl:          "" # the subpath of your site, e.g. /blog
-url:              "http://rehash.fm" # the base hostname & protocol for your site. Have a look at robots.txt as well!
+url:              "https://rehash.fm" # the base hostname & protocol for your site. Have a look at robots.txt as well!
 permalink:        /:title
 cover:            /assets/cover_v2.jpg
 disqus_shortname: "jekylldecent"
