@@ -10,10 +10,10 @@ excerpt:   This page contains the explanation about rehash.fm
 ---
 
 ## rehash.fmとは
-rehash.fmは酒をこよなく愛する**スマイル**(
+rehash.fm はインターネットと酒をこよなく愛する**スマイル**(
 <img title="github" alt="github" src="../assets/GitHub-Mark.png" height="15" width="15" align="absmiddle"/> [smile-0yen](https://github.com/smile-0yen),
 <img title="twitter" alt="twitter" src="../assets/Twitter_Logo_Blue.png" height="20" width="20" align="absmiddle"/>[@smile_0yen](https://twitter.com/smile_0yen)
-)と釣りに人生を懸ける**ふそやん**(
+)と釣りとアニメに人生を懸ける**ふそやん**(
 <img title="github" alt="github" src="../assets/GitHub-Mark.png" height="15" width="15" align="absmiddle"/> [azihsoyn](https://github.com/azihsoyn),
 <img title="twitter" alt="twitter" src="../assets/Twitter_Logo_Blue.png" height="20" width="20" align="absmiddle"/>[@azihsoyn](https://twitter.com/azihsoyn)
 )の２人のエンジニアが最近気になっている技術情報などをお送りするまったり系Tech Podcastです。
