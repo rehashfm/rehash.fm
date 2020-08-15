@@ -1,10 +1,10 @@
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.7.0/dist/instantsearch.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch.umd.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
 
 <script>
-/*
 const algoliaClient = algoliasearch(
   '{{ site.algolia.application_id }}',
   '{{ site.algolia.search_only_api_key }}'
@@ -12,31 +12,23 @@ const algoliaClient = algoliasearch(
 
 const searchClient = {
   search(requests) {
-    console.log(requests)
+    if (requests.every(({ params }) => !params.query)) {
+      return Promise.resolve({
+        results: requests.map(() => ({
+          hits: [],
+          nbHits: 0,
+          nbPages: 0,
+        })),
+      });
+    }
 
-    const newRequests = requests.map((request)=>{
-
-      // test for empty string and change request parameter: analytics
-      if(!request.params.query || request.params.query.length===0) {
-        request.params.analytics=false
-      }
-      return request
-    });
-
-    return algoliaClient.search(newRequests);
+    return algoliaClient.search(requests);
   },
 };
 
 const search = instantsearch({
   indexName: '{{ site.algolia.index_name }}',
   searchClient,
-});
-*/
-
-const search = instantsearch({
-  appId: '{{ site.algolia.application_id }}',
-  apiKey: '{{ site.algolia.search_only_api_key }}',
-  indexName: '{{ site.algolia.index_name }}'
 });
 
 const hitTemplate = function(hit) {
@@ -45,26 +37,16 @@ const hitTemplate = function(hit) {
     date = moment.unix(hit.date).format('MMMM DD, YYYY');
   }
 
-  let url = `{{ site.baseurl }}${hit.url}#${hit.anchor}`;
+  let url = `{{ site.baseurl }}${hit.url}`;
 
   const title = hit._highlightResult.title.value;
-
-  let breadcrumbs = '';
-  if (hit._highlightResult.headings) {
-    breadcrumbs = hit._highlightResult.headings.map(match => {
-      return `<span class="post-breadcrumb">${match.value}</span>`
-    }).join(' > ')
-  }
-
-  const content = hit._snippetResult['html'].value;
+  const content = hit._highlightResult.content.value;
 
   return `
           <a class="post-link" href="${url}">${title} - ${date}</a>
-          {{#breadcrumbs}}<a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>{{/breadcrumbs}}
           <div class="post-snippet">${content}</div>
   `;
 }
-
 
 search.addWidget(
   instantsearch.widgets.searchBox({
@@ -78,15 +60,20 @@ search.addWidget(
   instantsearch.widgets.hits({
     container: '#search-hits',
     templates: {
-        item: hitTemplate
+        item: hitTemplate,
+        empty: ""
     }
   })
 );
 
+
 search.addWidgets([
   instantsearch.widgets.configure({
     attributesToSnippet: ['html'],
-  })
+  }),
+  instantsearch.widgets.poweredBy({
+    container: '#powered-by',
+  }),
 ]);
 
 search.start();
@@ -97,8 +84,22 @@ search.start();
   max-width: 35%;
   margin-bottom: 15px;
 }
-.ais-hits--item ais-hits {
+.ais-Hits-item .ais-Hits {
   max-width: 650px;
+}
+.ais-Hits-list {
+  width: 100%;
+}
+.ais-Hits-list li{
+  border-bottom: thin solid #c4c4c4;
+  list-style-type: none;
+  margin: 0;
+}
+.ais-SearchBox-submit {
+  display: none;
+}
+.ais-SearchBox-reset {
+  display: none;
 }
 .post-item {
   margin-bottom: 30px;
@@ -125,8 +126,13 @@ search.start();
   font-style: normal;
   font-weight: bold;
 }
+.post-link {
+  font-weight: bold;
+  font-size: medium;
+}
 .post-snippet {
   text-align: left;
+  font-size: small;
 }
 .post-snippet img {
   display: none;
