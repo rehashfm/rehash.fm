@@ -42,7 +42,7 @@ const search = instantsearch({
 const hitTemplate = function(hit) {
   let date = '';
   if (hit.date) {
-    date = moment.unix(hit.date).format('MMM D, YYYY');
+    date = moment.unix(hit.date).format('MMMM DD, YYYY');
   }
 
   let url = `{{ site.baseurl }}${hit.url}#${hit.anchor}`;
@@ -56,10 +56,10 @@ const hitTemplate = function(hit) {
     }).join(' > ')
   }
 
-  const content = hit._highlightResult.html.value;
+  const content = hit._snippetResult['html'].value;
 
   return `
-          <a class="post-link" href="${url}">${title},   ${date}</a>
+          <a class="post-link" href="${url}">${title} - ${date}</a>
           {{#breadcrumbs}}<a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>{{/breadcrumbs}}
           <div class="post-snippet">${content}</div>
   `;
@@ -83,6 +83,12 @@ search.addWidget(
   })
 );
 
+search.addWidgets([
+  instantsearch.widgets.configure({
+    attributesToSnippet: ['html'],
+  })
+]);
+
 search.start();
 </script>
 
@@ -90,6 +96,9 @@ search.start();
 .ais-search-box {
   max-width: 35%;
   margin-bottom: 15px;
+}
+.ais-hits--item ais-hits {
+  max-width: 650px;
 }
 .post-item {
   margin-bottom: 30px;
@@ -116,7 +125,14 @@ search.start();
   font-style: normal;
   font-weight: bold;
 }
+.post-snippet {
+  text-align: left;
+}
 .post-snippet img {
   display: none;
+}
+.post-list {
+  display: inline-block;
+  max-width: 650px;
 }
 </style>
