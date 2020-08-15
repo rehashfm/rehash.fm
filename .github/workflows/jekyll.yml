@@ -20,6 +20,5 @@ jobs:
       run: |
         docker run \
         --env ALGOLIA_ADMIN_API_KEY="${ALGOLIA_ADMIN_API_KEY}" \
-        --env ALGOLIA_READ_API_KEY="${ALGOLIA_READ_API_KEY}" \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "echo ${ALGOLIA_READ_API_KEY} && chmod 777 /srv/jekyll && jekyll build --future && ALGOLIA_API_KEY=${ALGOLIA_ADMIN_API_KEY} jekyll algolia"
+        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future && ALGOLIA_API_KEY=${ALGOLIA_ADMIN_API_KEY} jekyll algolia"
