@@ -25,7 +25,7 @@ kramdown:
     disable: true
 include: ['_pages']
 exclude: [vendor]
-gems:
+plugins:
   - jekyll-mentions
   - jekyll-feed
   - jekyll-sitemap
@@ -36,3 +36,4 @@ algolia:
   application_id: '1I9BY7E41F'
   index_name: 'test_rehashfm'
   search_only_api_key: '317f54d0db66d31321841845b7da9ff2'
+  nodes_to_index: 'p,li'
