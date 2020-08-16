@@ -4,6 +4,11 @@ layout: default
 
 
 <div id="content" class="content">
+    <div id="search-searchbar"></div>
+    <div class="powered-by" id="powered-by"></div>
+    <div class="post-list" id="search-hits"></div>
+    {% include algolia.html %}
+
     <h3>Recent Posts</h3>
     <ul class="category recent-posts">       
         {% for post in site.posts limit:5  %}
@@ -29,12 +34,11 @@ layout: default
         {% endfor %}
     </ul>
 
-
     {% assign sorted_cats = site.categories | sort %}
     {% for category in sorted_cats %}
     {% assign sorted_posts = category[1] | reversed %}
     <h3 id="{{category[0] | uri_escape | downcase | slugify }}">{{category[0] | camelcase }}</h3>
-    <ul class="category {{category[0] | uri_escape | downcase | slugify}}">  
+    <ul class="category {{category[0] | uri_escape | downcase | slugify}}">
         {% for post in sorted_posts %}
         {% unless post.draft %}
 
