@@ -40,3 +40,7 @@ algolia:
   files_to_exclude:
     - index.html
     - offline.html
+  settings:
+    searchableAttributes:
+      - title
+      - unordered(content)
